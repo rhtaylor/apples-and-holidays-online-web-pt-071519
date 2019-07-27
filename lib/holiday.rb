@@ -86,26 +86,30 @@ def all_holidays_with_bbq(holiday_hash)
     xy = ''
      yz = '  '
      #wx = '   '
-   holiday_hash.each do |key, val|
+
+     holiday_hash.each do |season, holiday|
      #wx = ' '
-     xy = "#{key.to_s.capitalize}:"
+     xy = "#{season.capitalize}:"
       puts xy
       #yz = "  "
 
-      val.each do |keys, vals|
+      holiday.each do |day, items|
         #binding.pry
         wx = ' '
-           yz = "  #{keys.to_s.capitalize}:"
+           yz = "  #{day.to_s.split("_").map{ |word| word.capitalize}.join(" ")}:"
+           #binding.pry
 
-           print yz
 
-      vals.each do  |x|
+           #binding.pry
+
+           items.each do  |x|
         wx += "#{x.to_s}, "
 
       end
      #puts "#{yz}#{wx}"
         ww = wx[0, wx.length - 2 ]
         puts "#{yz}#{ww}"
+
    end
 =begin
    puts <<-DUDE
